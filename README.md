@@ -15,7 +15,3 @@ Build and operate a small containerized microservice through a complete DevOps w
 - Kubernetes deployment
 - monitoring and observability
 - troubleshooting and recovery
-
-## Current Status
-
-Phase 0 — Lab foundation
