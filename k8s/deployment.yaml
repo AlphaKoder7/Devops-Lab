@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-lab-api
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: devops-lab-api
+
+  template:
+    metadata:
+      labels:
+        app: devops-lab-api
+
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/alphakoder7/devops-lab-api:latest
+
+          ports:
+            - containerPort: 8000
+
+          env:
+            - name: APP_VERSION
+              value: "0.1.0"
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
