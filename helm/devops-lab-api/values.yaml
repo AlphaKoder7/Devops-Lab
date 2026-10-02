@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/alphakoder7/devops-lab-api
+  tag: latest
+
+service:
+  port: 80
+  targetPort: 8000
+
+app:
+  version: "0.1.0"
+
+ingress:
+  enabled: true
