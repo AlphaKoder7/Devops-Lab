@@ -1,0 +1,35 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: devops-lab-api
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: devops-lab-api
+      rules:
+        - alert: DevOpsLabAPIDown
+          expr: absent(up{job="devops-lab-api"} == 1)
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "DevOps Lab API is down"
+            description: "Prometheus has not been able to scrape the DevOps Lab API for at least 1 minute."
+
+        - alert: DevOpsLabAPIHigh5xxRate
+          expr: |
+            (
+              sum(rate(http_requests_total{job="devops-lab-api",status="5xx"}[5m]))
+              /
+              clamp_min(
+                sum(rate(http_requests_total{job="devops-lab-api"}[5m])),
+                0.000001
+              )
+            ) > 0.05
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "DevOps Lab API has a high 5xx error rate"
+            description: "More than 5% of API requests have returned 5xx responses for at least 2 minutes."
