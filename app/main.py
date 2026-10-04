@@ -1,6 +1,7 @@
 import os
 
 from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="DevOps Lab API")
 
@@ -27,3 +28,6 @@ def version():
     return {
         "version": APP_VERSION
     }
+
+
+Instrumentator().instrument(app).expose(app)
