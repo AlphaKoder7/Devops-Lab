@@ -44,3 +44,12 @@ kubeProxy:
 prometheus:
   prometheusSpec:
     retention: 3d
+
+grafana:
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki-gateway.logging.svc.cluster.local
+      isDefault: false
+      editable: false
