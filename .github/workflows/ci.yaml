@@ -1,11 +1,19 @@
 name: CI
-
 on:
   push:
     branches: [main]
+    paths:
+      - "app/**"
+      - "tests/**"
+      - "helm/devops-lab-api/**"
+      - "Dockerfile"
+      - ".dockerignore"
+      - "compose.yaml"
+      - "requirements-dev.txt"
+      - ".github/workflows/ci.yaml"
+
   pull_request:
     branches: [main]
-
 jobs:
   test:
     runs-on: ubuntu-latest
