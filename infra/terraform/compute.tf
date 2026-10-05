@@ -75,6 +75,11 @@ resource "aws_instance" "platform" {
 
   iam_instance_profile = aws_iam_instance_profile.ec2.name
 
+  root_block_device {
+    volume_size = 20
+    volume_type = "gp3"
+  }
+
   tags = {
     Name = "devops-lab-platform"
   }
