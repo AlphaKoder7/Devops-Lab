@@ -5,7 +5,7 @@ from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="DevOps Lab API")
 
-APP_VERSION = os.getenv("APP_VERSION", "0.1.0")
+APP_VERSION = os.getenv("APP_VERSION", "0.2.0")
 
 
 @app.get("/")

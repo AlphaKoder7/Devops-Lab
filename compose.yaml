@@ -2,12 +2,12 @@ services:
   api:
     build:
       context: .
-    image: devops-lab-api:0.1.0
+    image: devops-lab-api:0.2.0
     container_name: devops-lab-api
     ports:
       - "8000:8000"
     environment:
-      APP_VERSION: "0.1.0"
+      APP_VERSION: "0.2.0"
     healthcheck:
       test:
         [

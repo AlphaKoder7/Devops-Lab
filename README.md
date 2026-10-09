@@ -1,14 +1,13 @@
 # DevOps Lab
 
-A hands-on DevOps/SRE platform project that takes a small FastAPI service through the full delivery and operations lifecycle:
+A small AWS-hosted platform for a FastAPI service covering the full delivery and operations lifecycle:
 
 **code → test → container image → registry → AWS → Kubernetes → automated deployment → metrics, logs, alerts and recovery**
 
-The application is intentionally small. The project is about the platform around it: infrastructure as code, CI/CD, Kubernetes operations, observability, reliability targets, and incident response.
+The repository focuses on the delivery and operations platform around the API: infrastructure as code, CI/CD, Kubernetes, observability, reliability targets, and incident response.
 
-## What this project demonstrates
+## Platform capabilities
 
-- Linux-first development on Pop!_OS
 - FastAPI application with pytest coverage
 - Docker image build and GitHub Container Registry publishing
 - GitHub Actions CI/CD with path-aware workflows
