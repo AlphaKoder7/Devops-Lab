@@ -198,23 +198,3 @@ curl -s http://localhost/version
 ```
 
 The platform is administered through AWS Systems Manager, so these commands are run inside the SSM shell rather than over SSH.
-
-## Project status
-
-| Area | Status |
-| --- | --- |
-| Application and tests | ✅ |
-| Containers | ✅ |
-| CI and image publishing | ✅ |
-| AWS / Terraform | ✅ |
-| Kubernetes / Helm | ✅ |
-| Automated application deployment | ✅ |
-| Automated observability deployment | ✅ |
-| Metrics and dashboards | ✅ |
-| Centralized logging | ✅ |
-| Alerting and Slack notifications | ✅ |
-| SLI / SLO / error budget | ✅ |
-| Incident runbook and recovery test | ✅ |
-| Observability persistence | ✅ |
-
-This repository is now a complete small-scale DevOps/SRE portfolio project rather than just an application repository.
